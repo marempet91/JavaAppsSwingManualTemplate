@@ -15,10 +15,13 @@
  */
 package org.japo.java.forms;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.Properties;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.japo.java.events.KEM;
 import org.japo.java.events.MEM;
@@ -56,7 +59,7 @@ public class GUI extends JFrame {
         initAfter();
     }
 
-    // ConstrucciÃ³n - GUI
+    // Construcción - GUI
     private void initComponents() {
         // Panel Principal
         JPanel pnlPpal = new JPanel();
@@ -68,6 +71,11 @@ public class GUI extends JFrame {
         setSize(500, 300);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        JLabel lblRotulo = new JLabel ("Arrastrame (ESC - SALIR");
+        lblRotulo.setForeground(Color.BLUE);
+        lblRotulo.setFont(new Font("Cambria",Font.PLAIN,32));
+        pnlPpal.add(lblRotulo);
 
         //Operaciones de controles
         addKeyListener(new KEM(this));
