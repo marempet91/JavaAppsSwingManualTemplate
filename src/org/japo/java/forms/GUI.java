@@ -44,6 +44,7 @@ public class GUI extends JFrame {
     private int xIni;
     private int yIni;
 
+
     // Constructor
     public GUI(Properties prp) {
         // Inicialización Anterior
@@ -102,6 +103,18 @@ public class GUI extends JFrame {
     }
 
     public void gestionarArrastre(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int xFin = e.getXOnScreen();
+        int xOff = xFin-xIni;
+        xIni=xFin;
+        
+        int yFin = e.getXOnScreen();
+        int yOff = yFin-yIni;
+        yIni=yFin;
+        
+        int xWin=getLocation().x;
+        int yWin=getLocation().y;
+        setLocation(xWin-xOff, yWin +yOff);
+        
+        
     }
 }
