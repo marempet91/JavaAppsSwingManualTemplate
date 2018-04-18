@@ -41,6 +41,8 @@ public class GUI extends JFrame {
 
     // Referencias
     private Properties prp;
+    private int xIni;
+    private int yIni;
 
     // Constructor
     public GUI(Properties prp) {
@@ -66,7 +68,7 @@ public class GUI extends JFrame {
         setSize(500, 300);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
         //Operaciones de controles
         addKeyListener(new KEM(this));
         addMouseMotionListener(new MMEM(this));
@@ -95,7 +97,8 @@ public class GUI extends JFrame {
     }
 
     public void iniciarArrastre(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        xIni = e.getXOnScreen();
+        yIni = e.getXOnScreen();
     }
 
     public void gestionarArrastre(MouseEvent e) {
