@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 José A. Pacheco Ondoño - joanpaon@gmail.com.
+ * Copyright 2017 JosÃ© A. Pacheco OndoÃ±o - joanpaon@gmail.com.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import org.japo.java.libraries.UtilesSwing;
 
 /**
  *
- * @author Martín Emilov Petkov - marempet@gmail.com
+ * @author MartÃ­n Emilov Petkov - marempet@gmail.com
  */
 public class GUI extends JFrame {
 
@@ -44,27 +44,26 @@ public class GUI extends JFrame {
     private int xIni;
     private int yIni;
 
-
     // Constructor
     public GUI(Properties prp) {
-        // Inicialización Anterior
+        // InicializaciÃ³n Anterior
         initBefore(prp);
 
-        // Creación Interfaz
+        // CreaciÃ³n Interfaz
         initComponents();
 
         // Inicializacion Posterior
         initAfter();
     }
 
-    // Construcción - GUI
+    // ConstrucciÃ³n - GUI
     private void initComponents() {
         // Panel Principal
         JPanel pnlPpal = new JPanel();
 
         // Ventana Principal
         setContentPane(pnlPpal);
-        setTitle("Swing Manual #00");
+        setTitle("Swing Manual #02");
         setResizable(false);
         setSize(500, 300);
         setLocationRelativeTo(null);
@@ -76,7 +75,7 @@ public class GUI extends JFrame {
         addMouseListener(new MEM(this));
     }
 
-    // Inicialización Anterior    
+    // InicializaciÃ³n Anterior    
     private void initBefore(Properties prp) {
         // Memorizar Referencia
         this.prp = prp;
@@ -85,7 +84,7 @@ public class GUI extends JFrame {
         UtilesSwing.establecerLnF(prp.getProperty(PRP_LOOK_AND_FEEL, DEF_LOOK_AND_FEEL));
     }
 
-    // Inicialización Posterior
+    // InicializaciÃ³n Posterior
     private void initAfter() {
         // Establecer Favicon
         UtilesSwing.establecerFavicon(this, prp.getProperty(PRP_FAVICON, DEF_FAVICON));
@@ -97,24 +96,24 @@ public class GUI extends JFrame {
         }
     }
 
+    // Gestion del movimiento de arrastre
     public void iniciarArrastre(MouseEvent e) {
         xIni = e.getXOnScreen();
-        yIni = e.getXOnScreen();
+        yIni = e.getYOnScreen();
     }
 
     public void gestionarArrastre(MouseEvent e) {
         int xFin = e.getXOnScreen();
-        int xOff = xFin-xIni;
-        xIni=xFin;
-        
-        int yFin = e.getXOnScreen();
-        int yOff = yFin-yIni;
-        yIni=yFin;
-        
-        int xWin=getLocation().x;
-        int yWin=getLocation().y;
-        setLocation(xWin-xOff, yWin +yOff);
-        
-        
+        int xOff = xFin - xIni;
+        xIni = xFin;
+
+        int yFin = e.getYOnScreen();
+        int yOff = yFin - yIni;
+        yIni = yFin;
+
+        int xWin = getLocation().x;
+        int yWin = getLocation().y;
+        setLocation(xWin + xOff, yWin + yOff);
+
     }
 }
